@@ -377,11 +377,11 @@ Explicit directives (“Answer only from the context below”).
 
 - Context window = total tokens model can see (prompt + output).
 
-### Compute Instruction + Context + Query + Expected Output tokens.
+- Compute Instruction + Context + Query + Expected Output tokens.
 
 - Adjust chunk count or summarize to fit limit.
 
-### Reserve output tokens for generation.
+- Reserve output tokens for generation.
 
 - Handle overflow with multi-turn prompt chaining.
 
