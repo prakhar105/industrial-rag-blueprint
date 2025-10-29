@@ -497,6 +497,109 @@ flowchart TD
 
 ---
 
+---
+
+---
+
+## 🧮 21️⃣ Evaluation & Benchmarking Metrics
+
+**Goal:**  
+Measure and monitor how accurate, relevant, and trustworthy your RAG + Agentic AI pipeline is — across retrieval, generation, and overall system quality.
+
+---
+
+### 🧠 State-of-the-Art Practices (2025)
+
+| Evaluation Level | Core Metrics | What It Measures |
+|------------------|--------------|------------------|
+| **Retrieval Quality** | Context Precision · Context Recall · nDCG | Whether the system retrieves the right evidence chunks. |
+| **Generation Quality** | Faithfulness · Factual Consistency · Answer Relevance | Whether answers are grounded and address the user query. |
+| **End-to-End RAG Score** | Weighted average of all sub-scores | Combined indicator of retrieval + generation quality. |
+| **Human / LLM-as-Judge Evaluation** | Scaled rating or pairwise ranking | Qualitative validation by human or LLM. |
+| **Latency & Cost** | Response time · Token usage | Operational performance. |
+
+---
+
+### ⚖️ RAGAS vs DeepEval — Metric Comparison
+
+| **Metric** | **RAGAS Support** | **DeepEval Support** | **Purpose** |
+|-------------|------------------|----------------------|--------------|
+| Context Precision | ✅ | ✅ (as Context Relevance) | How relevant retrieved docs are. |
+| Context Recall | ✅ | ⚙️ Partial | Whether necessary evidence was retrieved. |
+| Context Relevance | ✅ | ✅ | Semantic match between query ↔ context. |
+| Faithfulness (Groundedness) | ✅ | ✅ | Factual alignment of answer ↔ context. |
+| Answer Relevance | ✅ | ✅ | Does the answer actually address the question? |
+| Factual Consistency | ⚙️ Partial | ✅ | Checks factual correctness of generated statements. |
+| Answer Correctness / Similarity | ✅ | ✅ | Match against gold/reference answers. |
+| Context Utilization | ⚙️ Experimental | ✅ | How effectively retrieved text was used. |
+| Coherence / Readability | ❌ | ✅ | Structural and grammatical quality. |
+| Toxicity / Bias | ❌ | ✅ | Detects unsafe or biased outputs. |
+| Latency / Cost | ❌ | ✅ | Measures performance and token efficiency. |
+
+---
+
+### 🧩 Frameworks & Libraries
+
+| Category | Free / Open Source | Enterprise / Managed |
+|-----------|------------------|----------------------|
+| **Retrieval Eval** | `RAGAS`, `LangChain Evaluation`, `TruLens`, `DeepEval` | **Weights & Biases Eval Suite**, **PromptLayer Studio** |
+| **Generation Eval** | `DeepEval`, `HuggingFace Evaluate`, `G-Eval` | **Humanloop**, **Anthropic Evaluator API** |
+| **End-to-End RAG Testing** | `ragas.evaluate()`, `deepeval.Evaluator` | **OpenAI Evals**, **Databricks LLMOps Monitor** |
+| **Latency / Cost Tracking** | `Prometheus + Grafana`, `LangSmith Metrics` | **W&B Telemetry**, **Datadog Monitor** |
+
+---
+
+### 🧪 Example Code Snippets
+
+**RAGAS Example**
+```python
+from ragas import evaluate
+from datasets import load_dataset
+
+dataset = load_dataset("ragas/benchmark", "fiqa")
+scores = evaluate(dataset, metrics=["faithfulness", "answer_relevance", "context_precision"])
+print(scores)
+```
+**DeepEval Example**
+```python
+from deepeval import evaluate
+
+evaluate(
+    model="gpt-4-turbo",
+    dataset="qa_eval.json",
+    metrics=[
+        "faithfulness",
+        "factual_consistency",
+        "context_relevance",
+        "answer_relevance"
+    ]
+)
+```
+
+### 📈 Integration in Pipeline
+
+```text
+... → 16️⃣ Post-Processing
+      ↓
+ 21️⃣ Evaluation & Benchmarking Metrics
+      ↓
+ 19️⃣ Continuous Learning / Fine-Tuning
+The evaluation stage runs automatically after post-processing and before fine-tuning to provide real-time quality feedback.
+```
+
+### 🧩 Placement Summary
+
+| Step | Stage | Primary Tools | Key Metrics |
+|------|--------|----------------|--------------|
+| 21️⃣ | Evaluation & Benchmarking Metrics | RAGAS, DeepEval, TruLens, LangSmith | Faithfulness, Relevance, Recall@k, Factual Consistency, Latency |
+
+**✅ Best Practice**
+
+Combine RAGAS (for retrieval-level diagnostics) with DeepEval (for holistic LLM evaluation).
+This gives both quantitative and qualitative insight into RAG performance.
+
+---
+
 ## ✅ Final Summary
 
 > **Industrial-Grade RAG = Clean Data + Intelligent Retrieval + Safe Prompting + Cost-Efficient Inference + Scalable Orchestration + Continuous Feedback.**
