@@ -304,7 +304,7 @@ flowchart TD
 **Goal:** Perform efficient nearest-neighbor retrieval.
 
 **SOTA Techniques:**
-- HNSW for high recall & speed
+- HNSW, IVF for high recall & speed
 - Product Quantization for compression
 - GPU-accelerated vector search
 
