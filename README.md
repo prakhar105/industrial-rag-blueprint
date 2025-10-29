@@ -113,6 +113,8 @@ This document describes a **production-ready Retrieval-Augmented Generation (RAG
 │  • Retrain periodically                                             │
 └─────────────────────────────────────────────────────────────────────┘
 
+
+```
 ## 🪄 Visual Flowchart (Mermaid Diagram)
 
 ```mermaid
@@ -182,11 +184,7 @@ flowchart TD
     class E1,E2 orchestration;
     class F1,F2 generation;
     class G1,G2,G3 monitoring;
-
-
-
 ```
-
 ---
 
 ## 1️⃣ Data Sourcing – Collect Knowledge Base
