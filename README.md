@@ -349,6 +349,43 @@ flowchart TD
 
 ## 11️⃣ Prompt Engineering & Context Window Management
 
+
+### 11.1.1 Prompt Structure
+- Instruction + Retrieved Context + User Query.
+
+### 11.1.2 Context Placement
+
+Pre-context (before query) or Post-context (after query).
+
+### 11.1.3 Instruction Engineering
+
+Explicit directives (“Answer only from the context below”).
+
+### 11.1.4 Prompt Length Management
+
+- Stay within token limits by summarizing or truncating.
+
+### 11.1.5 Few-shot / Chain-of-Thought / Guardrails
+
+- Add examples, reasoning steps, and safety constraints.
+
+### 11.1.6 Dynamic Prompts & Prompt Tuning
+
+- Auto-insert chunks via templates and iterate using feedback.
+
+### 11.1.7 💡 Context Window Management
+
+- Context window = total tokens model can see (prompt + output).
+
+### Compute Instruction + Context + Query + Expected Output tokens.
+
+- Adjust chunk count or summarize to fit limit.
+
+### Reserve output tokens for generation.
+
+- Handle overflow with multi-turn prompt chaining.
+
+
 **Goal:** Build optimal, cost-efficient prompts for the LLM.
 
 **SOTA Practices:**
