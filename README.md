@@ -8,7 +8,7 @@ This document describes a **production-ready Retrieval-Augmented Generation (RAG
 
 ## 🧩 Industrial RAG + Agentic AI Pipeline – ASCII Architecture Diagram
 
-```text
+
 ┌─────────────────────────────────────────────────────────────────────┐
 │                         1. DATA SOURCING                            │
 │ (Web, APIs, DBs, Docs, PDFs, Internal Systems)                      │
