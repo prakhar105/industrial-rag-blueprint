@@ -388,6 +388,7 @@ Explicit directives (“Answer only from the context below”).
 
 **Goal:** Build optimal, cost-efficient prompts for the LLM.
 
+
 **SOTA Practices:**
 - Dynamic templates (context + query + instruction)
 - Chain-of-thought / few-shot prompting
